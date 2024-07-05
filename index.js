@@ -2,11 +2,11 @@ const codebolt = require("@codebolt/codeboltjs").default;
 const {CodeRunner} = require("./agents/runner/runner");
 const {Bugfix} = require("./agents/bugfix/bugfix");
 const path = require("path")
-async function execute() {
+codebolt.chat.onActionMessage().on("userMessage", async (req, response) => {
 
 	await codebolt.waitForConnection();
-	codebolt.chat.stopProcess();
-	var message = await codebolt.chat.waitforReply(" ");
+	// codebolt.chat.stopProcess();
+	// var message = await codebolt.chat.waitforReply(" ");
 	// del
 	codebolt.chat.processStarted();
 
@@ -42,7 +42,7 @@ async function execute() {
 		await execute();
 		// await codebolt.terminal.executeCommand(`npx kill-port ${port}`);
 	}
-}
+})
  function executeWithTimeout(command, timeout, port) {
     return new Promise( (resolve, reject) => {
         let timer = setTimeout(() => {
@@ -65,6 +65,6 @@ async function execute() {
     });
 }
 
-(async () => {
-	await execute();
-})();
+// (async () => {
+// 	await execute();
+// })();
