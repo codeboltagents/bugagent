@@ -6,7 +6,7 @@ async function execute() {
 
 	await codebolt.waitForConnection();
 	codebolt.chat.stopProcess();
-	var message = await codebolt.chat.waitforReply("Hi I am Code Runner Agent,I will help you to run of your code ");
+	var message = await codebolt.chat.waitforReply(" ");
 	// del
 	codebolt.chat.processStarted();
 
